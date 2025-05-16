@@ -49,6 +49,8 @@ def set_cache():
     return jsonify({"message": "Data cached successfully"})
 
 
+
+
 @app.route('/get_cache/<key>', methods=['GET'])
 def get_cache(key):
     """Retrieve value from Redis."""
