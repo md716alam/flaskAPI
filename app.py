@@ -31,6 +31,10 @@ def create_store():
 # Connect to Redis
 redis_client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
 
+@app.route('/')
+def home():
+    return "Welcome to the Flask app with Redis!"
+
 @app.route('/set_cache', methods=['POST'])
 def set_cache():
     """Set key-value pair in Redis."""
@@ -55,4 +59,4 @@ def get_cache(key):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=True)
